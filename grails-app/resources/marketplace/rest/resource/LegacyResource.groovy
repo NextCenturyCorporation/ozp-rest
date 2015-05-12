@@ -99,6 +99,32 @@ class LegacyResource {
         new LegacyPreference(namespace, name, data.entity, currentUser)
     }
 
+    @Path('/hasPreference/{namespace}/{name}')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public Map<String, Object> hasPreference(
+        @PathParam('namespace') String namespace,
+        @PathParam('name') String name
+    ) {
+        Number statusCode = 200
+        Boolean preferenceExist
+
+        LegacyPreference pref = getPreference(namespace, name)
+        if (pref) {
+            preferenceExist = true
+        } else {
+            preferenceExist = false
+        }
+
+        [
+            preferenceExist: preferenceExist,
+            statusCode: statusCode
+        ]
+    }
+
     @Path('/person/whoami')
     @GET
     @Produces([
@@ -176,7 +202,6 @@ class LegacyResource {
         return list
     }
 
-
     @Path('widget/listUserAndGroupWidgets')
     @GET
     @Produces([
@@ -189,6 +214,18 @@ class LegacyResource {
         @QueryParam('widgetGuid') String widgetGuid
     ) {
         findWidgets(widgetName, widgetVersion, widgetGuid)
+    }
+
+    @Path('server/resources')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public Map<String, String> getServerVersion() {
+        [
+            serverVersion: '1.0'
+        ]
     }
 
 }
