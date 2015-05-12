@@ -111,6 +111,29 @@ class LegacyResource {
         new LegacyUser(currentUser)
     }
 
+
+    @Path('widget/{widgetGuid}')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public LegacyWidget getWidget(
+        @PathParam('widgetGuid') String widgetGuid
+    ) {
+        Profile currentUser = profileRestService.getCurrentUserProfile()
+        Long userId = currentUser.id
+
+        Listing listing = Listing.createCriteria().get() {
+            eq('uuid', widgetGuid)
+            owners {
+                eq('id',userId)
+            }
+        }
+
+        new LegacyWidget(listing)
+    }
+
     @Path('widget')
     @GET
     @Produces([
