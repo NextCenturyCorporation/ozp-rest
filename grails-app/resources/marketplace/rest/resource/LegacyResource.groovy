@@ -11,7 +11,6 @@ import javax.ws.rs.GET
 import javax.ws.rs.DELETE
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
-
 import marketplace.rest.LegacyPreference
 import marketplace.rest.LegacyUser
 import marketplace.rest.LegacyWidget
@@ -168,6 +167,7 @@ class LegacyResource {
     ])
     public Collection<LegacyWidget> findWidgets(
         @QueryParam('widgetName') String widgetName,
+        @QueryParam('universalName') String universalName,
         @QueryParam('widgetVersion') String widgetVersion,
         @QueryParam('widgetGuid') String widgetGuid
     ) {
@@ -175,10 +175,15 @@ class LegacyResource {
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
 
-        if (widgetName || widgetVersion || widgetGuid) {
+        if (widgetName || universalName || widgetVersion || widgetGuid) {
             Collection<Listing> listings = Listing.createCriteria().list() {
-                if (widgetName) {
-                    like('title', widgetName)
+                or {
+                    if (widgetName) {
+                        ilike('title', widgetName)
+                    }
+                    if (universalName) {
+                        eq('title', universalName)
+                    }
                 }
                 if (widgetVersion) {
                     like('versionName', widgetVersion)
