@@ -48,7 +48,6 @@ class LegacyResource {
             @PathParam('namespace') String namespace,
             @PathParam('name') String name,
             @FormParam('value') String value) {
-
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
         String key = namespace + (char) 0x1E + name
@@ -58,24 +57,51 @@ class LegacyResource {
         new LegacyPreference(namespace, name, value, currentUser)
     }
 
+    @Path('/preference/{namespace}/')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+
+    public Collection<LegacyPreference> getPreference(
+        @PathParam('namespace') String namespace) {
+
+        Collection<LegacyPreference> list = new ArrayList<LegacyPreference>()
+        Profile currentUser = profileRestService.getCurrentUserProfile()
+        Long userId = currentUser.id
+
+        Collection<IwcDataObject> iwcList = profileRestService.findDataItems(userId,namespace)
+        String breaker = "" + (char) 0x1E
+        
+        iwcList.each{
+            data -> list.add(new LegacyPreference(namespace,data.key.substring(data.key.indexOf(breaker)+1),data.entity,currentUser))
+        }
+
+        list
+    }
+
     @Path('/preference/{namespace}/{name}')
     @GET
     @Produces([
         MediaType.APPLICATION_JSON,
         MediaType.TEXT_HTML
     ])
-    public LegacyPreference getPreference(
+
+    public Collection<LegacyPreference> getPreference(
         @PathParam('namespace') String namespace,
         @PathParam('name') String name) {
 
+        Collection<LegacyPreference> list = new ArrayList<LegacyPreference>()
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
-        String key = namespace + (char) 0x1E + name
-
-        IwcDataObject data = profileRestService.getDataItem(userId, key)
-
-        new LegacyPreference(namespace, name, data.entity, currentUser)
-
+        
+        if (name!="undefined") {
+            String key = namespace + (char) 0x1E + name
+            IwcDataObject data = profileRestService.getDataItem(userId,key)
+            list.add(new LegacyPreference(namespace, name, data.entity, currentUser))
+        }
+        list
     }
 
     @Path('/preference/{namespace}/{name}')

@@ -95,13 +95,24 @@ class ProfileRestService extends RestService<Profile> {
             }
         }
     }
+    
 
     @Transactional(readOnly = true)
     public Collection<IwcDataObject> getUserData(Long userId) {
         Profile profile = getById(userId)
         authorizeView(profile)
-
+        
         IwcDataObject.findAllByProfile(profile)
+    }
+
+    @Transactional(readOnly = true)
+    public Collection<IwcDataObject> findDataItems(Long userId, String key) {
+        Profile profile = getById(userId)
+        authorizeView(profile)
+        IwcDataObject.createCriteria().list(){
+            eq('profile', profile)
+            ilike('key', key+'%')
+        }
     }
 
     @Transactional(readOnly=true)
