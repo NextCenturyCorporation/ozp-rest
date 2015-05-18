@@ -216,9 +216,10 @@ class LegacyResource {
     public Collection<LegacyWidget> getAllWidgets(
         @QueryParam('widgetName') String widgetName,
         @QueryParam('widgetVersion') String widgetVersion,
-        @QueryParam('widgetGuid') String widgetGuid
+        @QueryParam('widgetGuid') String widgetGuid,
+        @QueryParam('universalName' String universalName)
     ) {
-        findWidgets(widgetName, widgetVersion, widgetGuid)
+        findWidgets(widgetName, universalName, widgetVersion, widgetGuid)
     }
 
     @Path('server/resources')
