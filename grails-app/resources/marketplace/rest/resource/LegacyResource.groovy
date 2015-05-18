@@ -217,7 +217,7 @@ class LegacyResource {
         @QueryParam('widgetName') String widgetName,
         @QueryParam('widgetVersion') String widgetVersion,
         @QueryParam('widgetGuid') String widgetGuid,
-        @QueryParam('universalName' String universalName)
+        @QueryParam('universalName') String universalName)
     ) {
         findWidgets(widgetName, universalName, widgetVersion, widgetGuid)
     }
