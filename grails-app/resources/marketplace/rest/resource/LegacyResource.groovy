@@ -88,20 +88,18 @@ class LegacyResource {
         MediaType.TEXT_HTML
     ])
 
-    public Collection<LegacyPreference> getPreference(
+    public LegacyPreference getPreference(
         @PathParam('namespace') String namespace,
         @PathParam('name') String name) {
 
-        Collection<LegacyPreference> list = new ArrayList<LegacyPreference>()
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
         
         if (name!="undefined") {
             String key = namespace + (char) 0x1E + name
             IwcDataObject data = profileRestService.getDataItem(userId,key)
-            list.add(new LegacyPreference(namespace, name, data.entity, currentUser))
+            new LegacyPreference(namespace, name, data.entity, currentUser)
         }
-        list
     }
 
     @Path('/preference/{namespace}/{name}')
