@@ -18,7 +18,7 @@ import marketplace.rest.representation.out.LegacyWidgetCollectionRepresentation
 import marketplace.rest.ChildObjectCollection
 
 @Provider
-@Produces([MediaType.APPLICATION_JSON, MediaType.TEXT_HTML])
+@Produces(MediaType.APPLICATION_JSON)
 class LegacyWidgetCollectionRepresentationWriter extends
         AbstractRepresentationWriter<Collection<LegacyWidget>> {
     @Autowired
