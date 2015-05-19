@@ -6,8 +6,8 @@ import marketplace.Type
 class LegacyWidget {
 
 	Boolean visible = true
-	Boolean minimized = false 
-	Boolean maximized = false 
+	Boolean minimized = false
+	Boolean maximized = false
 	Boolean	definitionVisible = true
 	Boolean singleton
 	Boolean background = false
@@ -29,7 +29,7 @@ class LegacyWidget {
 	List<LegacyWidget> allRequired = new ArrayList<LegacyWidget>()
 	List<LegacyWidget> directRequired = new ArrayList<LegacyWidget>()
 	List<String> widgetTypes = new ArrayList<String>()
-	
+
 	String universalName = null
 	String description = null
 	Number totalUsers = 0
@@ -39,7 +39,7 @@ class LegacyWidget {
 
 
 	LegacyWidget(Listing listing) {
-		this.id = listing.id
+		this.id = listing.uuid
 		this.singleton = listing.singleton
 		this.userId = listing.owners[0].id
 		this.namespace = listing.title
@@ -55,7 +55,7 @@ class LegacyWidget {
 
 		// Take a Set<Tag> and create a Set<String>
 		this.tags = listing.tags
-		
+
 		//this.widgetTypes.add(listing.type.toString())
 
 		listing.required.each { item ->
