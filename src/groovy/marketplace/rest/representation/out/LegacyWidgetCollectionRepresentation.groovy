@@ -17,7 +17,6 @@ import marketplace.rest.ChildObjectCollection
 class LegacyWidgetCollectionRepresentation extends
         AbstractHalRepresentation<Collection<LegacyWidget>> {
 
-    // public static final String MEDIA_TYPE = 'application/vnd.ozp-library-simple-v1+json'
 
     private List<LegacyWidget> list
     private RepresentationFactory<LegacyWidget> widgetFactory
@@ -32,13 +31,8 @@ class LegacyWidgetCollectionRepresentation extends
         this.uriBuilderHolder = uriBuilderHolder
     }
 
-    @JsonValue
-    public List<LegacyWidgetCollectionRepresentation> asJsonList() {
-        list.collect {
-            widgetFactory.toRepresentation(it, uriBuilderHolder)
-        }
-    }
-
+    public Number getStatus() { 200 }
+    public ListJson getData() { new ListJson(this.list, this.widgetFactory, this.uriBuilderHolder) }
 
     @Component
     public static class Factory implements
@@ -52,6 +46,28 @@ class LegacyWidgetCollectionRepresentation extends
 
             new LegacyWidgetCollectionRepresentation(list, widgetFactory, uriBuilderHolder)
         }
+    }
+
+    public static class ListJson {
+
+        private List<LegacyWidget> list
+        private RepresentationFactory<LegacyWidget> widgetFactory
+        private ApplicationRootUriBuilderHolder uriBuilderHolder
+
+        ListJson(List<LegacyWidget> list, RepresentationFactory<LegacyWidget> widgetFactory, 
+            ApplicationRootUriBuilderHolder uriBuilderHolder) {
+            this.list = list
+            this.widgetFactory = widgetFactory
+            this.uriBuilderHolder = uriBuilderHolder
+        }
+            
+        @JsonValue
+        public List<LegacyWidgetCollectionRepresentation> asJsonList() {
+            list.collect {
+                widgetFactory.toRepresentation(it, uriBuilderHolder)
+            }
+        }
+
     }
 }
 
