@@ -1,3 +1,11 @@
+### 0.7.9 (2015-05-19)
+
+
+#### Bug Fixes
+
+* **Legacy:** fix windowname writer issue for  calls ([48e3b9d3](https://github.com/ozone-development/ozp-rest/commit/48e3b9d39d3b7052cb73bb3c4f1a2864272fe587))
+
+
 ### 0.7.8 (2015-05-12)
 
 
