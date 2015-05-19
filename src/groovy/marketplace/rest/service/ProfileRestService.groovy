@@ -139,12 +139,12 @@ class ProfileRestService extends RestService<Profile> {
         if(!putValue) {
             profile.addToIwcData(key: key, entity: entity, contentType: contentType)
             profile.save(failOnError: true)
+            putValue = IwcDataObject.findByProfileAndKey(profile, key)
         } else {
             putValue.entity = entity
             putValue.contentType = contentType
             putValue.save(failOnError: true)
         }
-
         putValue
     }
 

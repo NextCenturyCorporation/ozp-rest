@@ -52,9 +52,7 @@ class LegacyResource {
         Long userId = currentUser.id
         String key = namespace + (char) 0x1E + name
 
-        profileRestService.updateDataItem(userId, key, value, 'application/json')
-
-        new LegacyPreference(namespace, name, value, currentUser)
+        new LegacyPreference(profileRestService.updateDataItem(userId, key, value, 'application/json'))
     }
 
     @Path('/preference/{namespace}/')
@@ -75,9 +73,8 @@ class LegacyResource {
         String breaker = "" + (char) 0x1E
         
         iwcList.each{
-            data -> list.add(new LegacyPreference(namespace,data.key.substring(data.key.indexOf(breaker)+1),data.entity,currentUser))
+            data -> list.add(new LegacyPreference(data))
         }
-
         list
     }
 
@@ -95,11 +92,9 @@ class LegacyResource {
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
         
-        if (name!="undefined") {
-            String key = namespace + (char) 0x1E + name
-            IwcDataObject data = profileRestService.getDataItem(userId,key)
-            new LegacyPreference(namespace, name, data.entity, currentUser)
-        }
+        String key = namespace + (char) 0x1E + name
+        IwcDataObject data = profileRestService.getDataItem(userId,key)
+        new LegacyPreference(data)
     }
 
     @Path('/preference/{namespace}/{name}')
@@ -119,7 +114,7 @@ class LegacyResource {
         IwcDataObject data = profileRestService.getDataItem(userId, key)
         profileRestService.deleteDataItem(userId, key)
 
-        new LegacyPreference(namespace, name, data.entity, currentUser)
+        new LegacyPreference(data)
     }
 
     @Path('/hasPreference/{namespace}/{name}')

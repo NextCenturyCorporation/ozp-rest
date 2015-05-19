@@ -32,12 +32,13 @@ class LegacyPreferenceCollectionRepresentation extends
         this.uriBuilderHolder = uriBuilderHolder
     }
 
-    @JsonValue
-    public List<LegacyPreferenceCollectionRepresentation> asJsonList() {
+    public List<LegacyPreferenceCollectionRepresentation> getRows() {
         list.collect {
             preferenceFactory.toRepresentation(it, uriBuilderHolder)
         }
     }
+    public int getResults() { return list.size() }
+    public boolean getSuccess() {return true}
 
 
     @Component
