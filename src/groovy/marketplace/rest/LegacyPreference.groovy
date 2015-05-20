@@ -20,7 +20,7 @@ class LegacyPreference {
         String keyBreaker = "" + (char) 0x1E
         int breakIndex = object.key.indexOf(keyBreaker)
         this.namespace = object.key.substring(0,breakIndex)
-        this.name = object.key.substring(breakIndex)
+        this.name = object.key.substring(breakIndex+1)
 
         this.value = object.entity
         this.user = object.profile
