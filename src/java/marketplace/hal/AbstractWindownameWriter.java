@@ -33,7 +33,7 @@ public abstract class AbstractWindownameWriter<T> implements MessageBodyWriter<T
     private static final byte[] windownamePrelude = (
         "<!DOCTYPE html>" +
         "<title>Windowname transport</title>" +
-        "<script>window.name='{status:200, data:"
+        "<script>window.name='"
     ).getBytes(CHARSET);
 
     private static final byte[] windownamePostlude = ("';</script>").getBytes(CHARSET);
