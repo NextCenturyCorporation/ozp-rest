@@ -1,3 +1,32 @@
+### 0.7.10 (2015-05-26)
+
+
+#### Bug Fixes
+
+* **Legacy:**
+  * syntax error ([e874e371](https://github.com/ozone-development/ozp-rest/commit/e874e371ab9341387b6a865d91cb80b6651f1c2d))
+  * updated  for universal name search ([b938723d](https://github.com/ozone-development/ozp-rest/commit/b938723db56733d8c9bc050fbce7ece7b2474b0f))
+
+
+#### Features
+
+* **Legacy:**
+  * Changed windownamePrelude in AbstractWindownameWriter.java ([87ebb9ab](https://github.com/ozone-development/ozp-rest/commit/87ebb9ab0d5cfbfb2b12031e8573e9a84e60845d))
+  * Fixed error in LegacyWidgetCollectionRepresentation.groovy ([c3d150e0](https://github.com/ozone-development/ozp-rest/commit/c3d150e0077ce1f1302123e001dae8ab2268a716))
+  * Fixed a small bug in LegacyPreference.groovy ([c9a9d07d](https://github.com/ozone-development/ozp-rest/commit/c9a9d07d8161bdea36c8c6297e76e299cf04e82a))
+  * Corrected return values of some functions in Legacy Resource. ([a0941dc9](https://github.com/ozone-development/ozp-rest/commit/a0941dc9eec4ca7427b3d0fea110e6b915e27949))
+  * updated windowname writer to add  etc. ([9a6930f1](https://github.com/ozone-development/ozp-rest/commit/9a6930f1fe128676af82ea4257e0aa755577eb2e))
+  * formatted results for collections of widgets ([58eecca6](https://github.com/ozone-development/ozp-rest/commit/58eecca677fe24c64718e51d2ae3e1cbe2281ac4))
+  * Corrected return type of getPreference in LegacyResource.groovy ([fd2de37e](https://github.com/ozone-development/ozp-rest/commit/fd2de37e24cedd313435a146b0c466d24681a0be))
+  * add support for universal name for listUserAndGroupWidgets, syntax error ([992057c6](https://github.com/ozone-development/ozp-rest/commit/992057c6fc1d78b47525128be68c0d7d33e6d68a))
+  * update preferences to pull collection ([e1228bd8](https://github.com/ozone-development/ozp-rest/commit/e1228bd80f3ddf200943aac3a03e6b09414ca1a0))
+  * Added functionality for getPreference to return a collection of all matching pre ([10ce37f5](https://github.com/ozone-development/ozp-rest/commit/10ce37f5ff5b6aedc171aa12a10295040b9fe312))
+  * Corrected the formatting of data between LegacyHTTPMethodServletFilter and Legac ([6edb8c98](https://github.com/ozone-development/ozp-rest/commit/6edb8c98a0c88ed4e63696cb92d5770a567e92f3))
+  * Modified the attributes of LegacyWidget to correctly match up to OWF widget attr ([b4671529](https://github.com/ozone-development/ozp-rest/commit/b4671529e2e73a5ce9f4dad1d1962c9f280c206e))
+  *  and  done #44 #41 ([ec4cde36](https://github.com/ozone-development/ozp-rest/commit/ec4cde36d7c912a7c250438989924b9467ca1cb2))
+  * getWidget by guid working #43 ([d3fa70a9](https://github.com/ozone-development/ozp-rest/commit/d3fa70a9f9c0abde071a0f3e4c19d3b0b346684a))
+
+
 ### 0.7.9 (2015-05-19)
 
 
