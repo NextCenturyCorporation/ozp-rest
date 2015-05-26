@@ -59,7 +59,13 @@ class LegacyHTTPMethodServletFilter implements Filter {
                 for (Map.Entry<String, String> entry : parameters.entrySet())
                 {
                     if (entry.getKey() != '_method') {
-                        urlParams += entry.getKey() + '=' + entry.getValue()[0] + '&'
+                        String tmpValue = entry.getValue()[0];
+                        if (tmpValue.lastIndexOf("%")== tmpValue.length()-1) {
+                            tmpValue = tmpValue.substring(0,tmpValue.length()-1)}
+                        if (tmpValue.indexOf("%") == 0) {
+                            tmpValue = tmpValue.substring(1)}
+                        tmpValue = partialEncode(tmpValue)
+                        urlParams += entry.getKey() + '=' + tmpValue + '&'
                     }
                 }
                 return urlParams
@@ -67,6 +73,18 @@ class LegacyHTTPMethodServletFilter implements Filter {
             } else {
                 return super.getQueryString()
             }            
+        }
+        private String partialEncode(String input){
+            int index = input.indexOf("%")
+            String output = ""
+            if(index >= 0){// % found
+                if(index > 0){ output = input.substring(0,index)}
+                output += "%25"
+                if(index<input.length() -1){ output += partialEncode(input.substring(index+1)) }
+            }else{
+                output = input
+            }
+            return output
         }
     }
 

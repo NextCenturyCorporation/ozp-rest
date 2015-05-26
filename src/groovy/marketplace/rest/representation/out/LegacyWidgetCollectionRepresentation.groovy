@@ -32,8 +32,8 @@ class LegacyWidgetCollectionRepresentation extends
         this.uriBuilderHolder = uriBuilderHolder
     }
 
-    @JsonValue
-    public List<LegacyWidgetCollectionRepresentation> asJsonList() {
+    public Number getStatus() { 200 }
+    public List<LegacyWidgetCollectionRepresentation> getData() {
         list.collect {
             widgetFactory.toRepresentation(it, uriBuilderHolder)
         }
@@ -54,4 +54,3 @@ class LegacyWidgetCollectionRepresentation extends
         }
     }
 }
-
