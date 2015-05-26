@@ -11,7 +11,6 @@ import javax.ws.rs.GET
 import javax.ws.rs.DELETE
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
-
 import marketplace.rest.LegacyPreference
 import marketplace.rest.LegacyUser
 import marketplace.rest.LegacyWidget
@@ -49,14 +48,34 @@ class LegacyResource {
             @PathParam('namespace') String namespace,
             @PathParam('name') String name,
             @FormParam('value') String value) {
-
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
         String key = namespace + (char) 0x1E + name
 
-        profileRestService.updateDataItem(userId, key, value, 'application/json')
+        new LegacyPreference(profileRestService.updateDataItem(userId, key, value, 'application/json'))
+    }
 
-        new LegacyPreference(namespace, name, value, currentUser)
+    @Path('/preference/{namespace}/')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+
+    public Collection<LegacyPreference> getPreference(
+        @PathParam('namespace') String namespace) {
+
+        Collection<LegacyPreference> list = new ArrayList<LegacyPreference>()
+        Profile currentUser = profileRestService.getCurrentUserProfile()
+        Long userId = currentUser.id
+
+        Collection<IwcDataObject> iwcList = profileRestService.findDataItems(userId,namespace)
+        String breaker = "" + (char) 0x1E
+        
+        iwcList.each{
+            data -> list.add(new LegacyPreference(data))
+        }
+        list
     }
 
     @Path('/preference/{namespace}/{name}')
@@ -65,18 +84,17 @@ class LegacyResource {
         MediaType.APPLICATION_JSON,
         MediaType.TEXT_HTML
     ])
+
     public LegacyPreference getPreference(
         @PathParam('namespace') String namespace,
         @PathParam('name') String name) {
 
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
+        
         String key = namespace + (char) 0x1E + name
-
-        IwcDataObject data = profileRestService.getDataItem(userId, key)
-
-        new LegacyPreference(namespace, name, data.entity, currentUser)
-
+        IwcDataObject data = profileRestService.getDataItem(userId,key)
+        new LegacyPreference(data)
     }
 
     @Path('/preference/{namespace}/{name}')
@@ -96,7 +114,33 @@ class LegacyResource {
         IwcDataObject data = profileRestService.getDataItem(userId, key)
         profileRestService.deleteDataItem(userId, key)
 
-        new LegacyPreference(namespace, name, data.entity, currentUser)
+        new LegacyPreference(data)
+    }
+
+    @Path('/hasPreference/{namespace}/{name}')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public Map<String, Object> hasPreference(
+        @PathParam('namespace') String namespace,
+        @PathParam('name') String name
+    ) {
+        Number statusCode = 200
+        Boolean preferenceExist
+
+        LegacyPreference pref = getPreference(namespace, name)
+        if (pref) {
+            preferenceExist = true
+        } else {
+            preferenceExist = false
+        }
+
+        [
+            preferenceExist: preferenceExist,
+            statusCode: statusCode
+        ]
     }
 
     @Path('/person/whoami')
@@ -111,6 +155,29 @@ class LegacyResource {
         new LegacyUser(currentUser)
     }
 
+
+    @Path('widget/{widgetGuid}')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public LegacyWidget getWidget(
+        @PathParam('widgetGuid') String widgetGuid
+    ) {
+        Profile currentUser = profileRestService.getCurrentUserProfile()
+        Long userId = currentUser.id
+
+        Listing listing = Listing.createCriteria().get() {
+            eq('uuid', widgetGuid)
+            owners {
+                eq('id',userId)
+            }
+        }
+
+        new LegacyWidget(listing)
+    }
+
     @Path('widget')
     @GET
     @Produces([
@@ -119,6 +186,7 @@ class LegacyResource {
     ])
     public Collection<LegacyWidget> findWidgets(
         @QueryParam('widgetName') String widgetName,
+        @QueryParam('universalName') String universalName,
         @QueryParam('widgetVersion') String widgetVersion,
         @QueryParam('widgetGuid') String widgetGuid
     ) {
@@ -126,10 +194,15 @@ class LegacyResource {
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
 
-        if (widgetName || widgetVersion || widgetGuid) {
+        if (widgetName || universalName || widgetVersion || widgetGuid) {
             Collection<Listing> listings = Listing.createCriteria().list() {
-                if (widgetName) {
-                    like('title', widgetName)
+                or {
+                    if (widgetName) {
+                        ilike('title', widgetName)
+                    }
+                    if (universalName) {
+                        eq('title', universalName)
+                    }
                 }
                 if (widgetVersion) {
                     like('versionName', widgetVersion)
@@ -153,7 +226,6 @@ class LegacyResource {
         return list
     }
 
-
     @Path('widget/listUserAndGroupWidgets')
     @GET
     @Produces([
@@ -163,9 +235,22 @@ class LegacyResource {
     public Collection<LegacyWidget> getAllWidgets(
         @QueryParam('widgetName') String widgetName,
         @QueryParam('widgetVersion') String widgetVersion,
-        @QueryParam('widgetGuid') String widgetGuid
+        @QueryParam('widgetGuid') String widgetGuid,
+        @QueryParam('universalName') String universalName
     ) {
-        findWidgets(widgetName, widgetVersion, widgetGuid)
+        findWidgets(widgetName, universalName, widgetVersion, widgetGuid)
+    }
+
+    @Path('server/resources')
+    @GET
+    @Produces([
+        MediaType.APPLICATION_JSON,
+        MediaType.TEXT_HTML
+    ])
+    public Map<String, String> getServerVersion() {
+        [
+            serverVersion: '1.0'
+        ]
     }
 
 }

@@ -20,7 +20,8 @@ class LegacyPreferenceRepresentation extends AbstractHalRepresentation<LegacyPre
     public String getPath() { legacyPreference.name }
     public String getValue() { legacyPreference.value }
     public UserJson getUser() { new UserJson(legacyPreference.user) }
-
+    public int getId() { legacyPreference.id}
+    
     @Component
     public static class Factory implements RepresentationFactory<LegacyPreference> {
         AbstractHalRepresentation<LegacyPreference> toRepresentation(

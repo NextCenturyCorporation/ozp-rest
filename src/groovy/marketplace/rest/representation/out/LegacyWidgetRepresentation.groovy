@@ -51,21 +51,24 @@ class LegacyWidgetRepresentation extends AbstractHalRepresentation<LegacyWidget>
         public String getNamespace() { legacyWidget.namespace }
         public String getUserid() { legacyWidget.userId }
         public Boolean getVisible() { legacyWidget.visible }
-        public Boolean getEditable() { legacyWidget.editable }
         public Boolean getMinimized() { legacyWidget.minimized }
         public Boolean getMaximized() { legacyWidget.maximized }
         public Boolean getDefinitionVisible() { legacyWidget.definitionVisible }
         public Boolean getSingleton() { legacyWidget.singleton }
         public Boolean getBackground() { legacyWidget.background }
-        public String getUserRealName() { legacyWidget.userRealName }
         public String getUrl() { legacyWidget.url }
         public String getWidgetVersion() { legacyWidget.widgetVersion }
-        public Number getPosition() { legacyWidget.position }
         public Number getWidth() { legacyWidget.width }
         public Number getHeight() { legacyWidget.height }
         public Number getX() { legacyWidget.x }
         public Number getY() { legacyWidget.y }
-
+        
+        public String getUniversalName() {legacyWidget.universalName}
+        public String getDescription() {legacyWidget.description}
+        public Number getTotalUsers() {legacyWidget.totalUsers}
+        public Number getTotalGroups() {legacyWidget.totalGroups}
+        public String getDescriptorUrl() {legacyWidget.descriptorUrl}
+        public List<String> getIntents() {legacyWidget.intents}
 
         public URI getHeaderIcon() {
             legacyWidget.headerIcon ? imageUriBuilder.getImageUri(legacyWidget.headerIcon) : null
