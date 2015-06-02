@@ -9,7 +9,7 @@ import gorm.AuditStamp
 class Contact {
 
     static final String PHONE_REGEX = /(^\+\d((([\s.-])?\d+)?)+$)|(^(\(\d{3}\)\s?|^\d{3}[\s.-]?)?\d{3}[\s.-]?\d{4}$)/
-    static final String EMAIL_REGEX = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    static final String EMAIL_REGEX = /^([a-zA-Z0-9_\.\-'])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
 
     static searchable = {
         root false
