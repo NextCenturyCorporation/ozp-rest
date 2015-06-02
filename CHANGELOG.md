@@ -1,3 +1,11 @@
+### 0.7.11 (2015-06-02)
+
+
+#### Bug Fixes
+
+* **Contacts:** accept apostrophes in email addresses #76 ([8c06488d](https://github.com/ozone-development/ozp-rest/commit/8c06488d26d766d46e829d0b8f7f2f2f4f0ea8aa))
+
+
 ### 0.7.10 (2015-05-26)
 
 
