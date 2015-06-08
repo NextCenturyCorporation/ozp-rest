@@ -279,7 +279,9 @@ class ImageRestService {
 
 
         //ensure image dir exists
-        Files.createDirectories(imageDir)
+        if (Files.notExist(imageDir)) {
+            Files.createDirectories(imageDir)
+        }
 
         //traverse the image directory and delete images that are at least a day old
         //and are not referenced by any domain object
