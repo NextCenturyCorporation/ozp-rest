@@ -1,3 +1,12 @@
+### 0.7.12 (2015-06-09)
+
+
+#### Bug Fixes
+
+* **Logfiles:** Check needed to avoid warning messages for symbolic links ([c4c5db79](https://github.com/ozone-development/ozp-rest/commit/c4c5db79162d50d023fb7ddbd9aef624b0170752))
+
+
+
 ### 0.7.11 (2015-06-02)
 
 
