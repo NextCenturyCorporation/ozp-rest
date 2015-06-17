@@ -279,7 +279,7 @@ class ImageRestService {
 
 
         //ensure image dir exists
-        if (Files.notExist(imageDir)) {
+        if (Files.notExists(imageDir)) {
             Files.createDirectories(imageDir)
         }
 
