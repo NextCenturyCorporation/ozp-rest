@@ -1,3 +1,11 @@
+### 0.7.13 (2015-06-22)
+
+
+#### Bug Fixes
+
+* **Categories:** Alphabetize categories #81 ([dd700c70](https://github.com/ozone-development/ozp-rest/commit/dd700c70909dd947c4616c5a356e862592276465))
+
+
 ### 0.7.12 (2015-06-09)
 
 
