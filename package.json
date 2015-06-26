@@ -17,7 +17,7 @@
     "newman": "^1.2.2"
   },
   "scripts": {
-    "loadSampleListings": "./node_modules/newman/bin/newman -k -c postman/createSampleListings.json -e postman/env/localDev.json -n 34 -d postman/data/listingData.json",
+    "loadSampleListings": "./node_modules/newman/bin/newman -k -c postman/createSampleListings.json -e postman/env/localDev.json -n 36 -d postman/data/listingData.json",
     "loadSampleMetaData": "./node_modules/newman/bin/newman -k -c postman/createSampleMetaData.json -e postman/env/localDev.json",
     "loadSampleNotifications": "./node_modules/newman/bin/newman -k -c postman/createSampleNotifications.json -e postman/env/localDev.json",
     "loadSampleData": "npm run loadSampleMetaData && npm run loadSampleListings && npm run loadSampleNotifications",
