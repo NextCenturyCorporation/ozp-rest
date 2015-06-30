@@ -1,3 +1,11 @@
+### 0.7.15 (2015-06-30)
+
+
+#### Features
+
+* **Sample Data:** update sample data to include new widgets ([91a0c4e9](https://github.com/ozone-development/ozp-rest/commit/91a0c4e9f5c1995ab99d374a4d01f0a449580781))
+
+
 ### 0.7.14 (2015-06-25)
 
 
