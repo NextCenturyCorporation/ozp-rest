@@ -178,21 +178,16 @@ class ProfileRestService extends RestService<Profile> {
     @Transactional(isolation=Isolation.READ_COMMITTED)
     public void login() {
         String username = accountService.loggedInUsername
-        // debug code - trying to see why some users don't have write access
-        String DEBUG_USERNAME = 'testAdmin1'
-        String DEBUG_ORG = 'Test Admin Organization'
 
         //this cache is set to expire items after 1 minute, so any
         //entry in the cache is a recent login
         if (recentLoginsCache.get(username)) {
-            if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-                //log.error('Found ' + DEBUG_USERNAME + ' in cache')
-            }
+            //log.error('Found ' + DEBUG_USERNAME + ' in cache')
             return
         }
-        if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-            log.error('ProfileResService.login (not found in cache), username: ' + username + ', loggedInOrg: ' + accountService.loggedInOrganization)
-        }
+
+        log.error('ProfileResService.login (not found in cache), username: ' + username + ', loggedInOrg: ' + accountService.loggedInOrganization)
+
 
         //pessimistically lock for update
         Profile profile = getCurrentUserProfile(true) ?: new Profile(
@@ -202,14 +197,10 @@ class ProfileRestService extends RestService<Profile> {
         //TODO This might need to be more robust
         Agency organization = Agency.findByTitle(accountService.loggedInOrganization)
         if (organization) {
-            if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-                log.error('Found organization for user ' + DEBUG_USERNAME + ': ' + organization)
-            }
+            log.error('Found organization for user ' + accountService.loggedInUsername + ': ' + organization)
             profile.addToOrganizations(organization)
         } else {
-            if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-                log.error('Failed to find organization for user ' + DEBUG_USERNAME + ', looking for org title: ' + accountService.loggedInOrganization)
-            }
+            log.error('Failed to find organization for user ' + accountService.loggedInUsername + ', looking for org title: ' + accountService.loggedInOrganization)
         }
 
         profile.with {
@@ -220,13 +211,11 @@ class ProfileRestService extends RestService<Profile> {
                 Role.fromGrantedAuthority(it)
             }.max()
         }
-        if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-            log.error('Saving profile for user ' + DEBUG_USERNAME + 'displayName: ' + profile.displayName + ', email: ' + profile.email + ', highestRole: ' + profile.highestRole)
-        }
+
+        log.error('Saving profile for user ' + accountService.loggedInUsername + 'displayName: ' + profile.displayName + ', email: ' + profile.email + ', highestRole: ' + profile.highestRole)
+
         profile.save(failOnError:true)
-        if (username == DEBUG_USERNAME || accountService.loggedInOrganization == DEBUG_ORG) {
-            log.error('Finished saving profile for user ' + DEBUG_USERNAME)
-        }
+        log.error('Finished saving profile for user ' + accountService.loggedInUsername)
         recentLoginsCache.put(new Element(username, null))
     }
 
