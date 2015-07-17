@@ -37,9 +37,9 @@ This placeholder URL will vary depending upon your deployment. Be mindful that `
 
 
 ##Request Methods
-[POST](https://github.com/ozone-development/ozp-rest/blob/master/OZP_agencyAPI.md#POST),
-[PUT](https://github.com/ozone-development/ozp-rest/blob/master/OZP_agencyAPI.md#PUT), 
-[GET](https://github.com/ozone-development/ozp-rest/blob/master/OZP_agencyAPI.md#GET), [DELETE](https://github.com/ozone-development/ozp-rest/blob/master/OZP_agencyAPI.md#DELETE)
+[POST](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_agencyAPI.md#POST),
+[PUT](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_agencyAPI.md#PUT), 
+[GET](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_agencyAPI.md#GET), [DELETE](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_agencyAPI.md#DELETE)
 <br>
 Each method will be explained in the following sections:
 
