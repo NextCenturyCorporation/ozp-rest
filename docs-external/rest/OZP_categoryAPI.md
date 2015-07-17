@@ -36,10 +36,10 @@ The following properties appear in the Category JSON:
 This placeholder URL will vary depending upon your deployment. Be mindful that `https://localhost:8443/marketplace` is an example "base/context/domain" where your WAR is deployed.  
 
 ##Request Methods
-[POST](https://github.com/ozone-development/ozp-rest/blob/master/OZP_categoryAPI.md#POST),
-[PUT](https://github.com/ozone-development/ozp-rest/blob/master/OZP_categoryAPI.md#PUT), 
-[GET](https://github.com/ozone-development/ozp-rest/blob/master/OZP_categoryAPI.md#GET), 
-[DELETE](https://github.com/ozone-development/ozp-rest/blob/master/OZP_categoryAPI.md#DELETE)
+[POST](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_categoryAPI.md#POST),
+[PUT](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_categoryAPI.md#PUT), 
+[GET](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_categoryAPI.md#GET), 
+[DELETE](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_categoryAPI.md#DELETE)
 <br>
 Each method will be explained in the following sections:
 
