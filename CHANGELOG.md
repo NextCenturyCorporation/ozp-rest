@@ -1,3 +1,11 @@
+### 1.0.1 (2015-07-22)
+
+
+#### Bug Fixes
+
+* **Authorization:** add case-insensitive compare for usernames ([9cc7fd5a](https://github.com/ozone-development/ozp-rest/commit/9cc7fd5a3b13151fc30929c83b13a33ba39bd1a9))
+
+
 ## 1.0.0 (2015-07-22)
 
 
