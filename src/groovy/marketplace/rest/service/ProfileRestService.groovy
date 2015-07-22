@@ -49,7 +49,7 @@ class ProfileRestService extends RestService<Profile> {
 
     protected void authorizeUpdate(Profile existing) {
         Profile currentUserProfile = this.currentUserProfile
-        if (!(isAdmin() || accountService.loggedInUsername == existing.username)) {
+        if (!(isAdmin() || accountService.loggedInUsername.equalsIgnoreCase(existing.username))) {
             throw new AccessDeniedException("Unauthorized attempt to modify profile " +
                 "${existing.username} by user ${accountService.loggedInUsername}")
         }
@@ -95,13 +95,13 @@ class ProfileRestService extends RestService<Profile> {
             }
         }
     }
-    
+
 
     @Transactional(readOnly = true)
     public Collection<IwcDataObject> getUserData(Long userId) {
         Profile profile = getById(userId)
         authorizeView(profile)
-        
+
         IwcDataObject.findAllByProfile(profile)
     }
 
