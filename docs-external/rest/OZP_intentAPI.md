@@ -135,7 +135,7 @@ If you want to see a list of all the intents in the system, enter:
 However, to view metadata about only one intent, enter:
 `https://localhost:8443/marketplace/api/intent/{id}`
  
-Marketplace returns the representation of the intent that matches the{id}, as shown in the Response for one intent id. 
+Marketplace (i.e., Center) returns the representation of the intent that matches the{id}, as shown in the Response for one intent id. 
 
 #####Response Code:
 200

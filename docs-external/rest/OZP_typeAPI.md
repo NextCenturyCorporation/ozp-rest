@@ -119,7 +119,7 @@ If you want to see a list of all the types in the system, enter:
 However, to view metadata about only one type, enter:
 `https://localhost:8443/marketplace/api/type/{id}`
  
-Marketplace returns the representation of the type that matches the{id}, as shown in the Response for one type id. 
+Marketplace (i.e., Center) returns the representation of the type that matches the{id}, as shown in the Response for one type id. 
 
 #####Response Code:
 200

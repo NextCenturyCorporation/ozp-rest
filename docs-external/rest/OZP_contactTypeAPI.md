@@ -120,7 +120,7 @@ If you want to see a list of all the contact types in the system, enter:
 However, to view metadata about only one contact type, enter:
 `https://localhost:8443/marketplace/api/contactType/{id}`
  
-Marketplace returns the representation of the contact type that matches the{id}, as shown in the Response for one contact type id. 
+Marketplace (i.e., Center) returns the representation of the contact type that matches the{id}, as shown in the Response for one contact type id. 
 
 #####Response Code:
 200

@@ -119,7 +119,7 @@ If you want to see a list of all the categories in the system, enter:
 However, to view metadata about only one category, enter:
 `https://localhost:8443/marketplace/api/category/{id}`
  
-Marketplace returns the representation of the category that matches the{id}, as shown in the Response for one category id. 
+Marketplace (i.e., Center) returns the representation of the category that matches the{id}, as shown in the Response for one category id. 
 
 #####Response Code:
 200
