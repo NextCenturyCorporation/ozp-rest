@@ -45,7 +45,8 @@
 			"description": "",
 			"order": [
 				"60ac8be9-bd3d-c61f-df82-f57f7c707ae3",
-				"2b0caf3a-86fa-ab95-7c17-958e2f67b0ba"
+				"2b0caf3a-86fa-ab95-7c17-958e2f67b0ba",
+				"2b0caf3a-86fa-ab95-7c17-958e2f67b0bb"
 			],
 			"collection_name": "OZP-REST Sample Meta Data",
 			"collection_id": "e8cce755-7b1d-f17d-4db0-83051d8eb956"
@@ -169,6 +170,25 @@
 			"responses": [],
 			"synced": false,
 			"rawModeData": "{\n    \"title\": \"Test 2 Organization\",\n    \"shortName\": \"TO2\"\n}"
+		},
+		{
+			"id": "2b0caf3a-86fa-ab95-7c17-958e2f67b0bb",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic dGVzdEFkbWluMTpwYXNzd29yZA==\n",
+			"url": "{{baseUrl}}/api/agency/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 201\"] = responseCode.code === 201;",
+			"time": 1414683135859,
+			"name": "Create Test 3 Org",
+			"description": "",
+			"collectionId": "e8cce755-7b1d-f17d-4db0-83051d8eb956",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n    \"title\": \"Test 3 Organization\",\n    \"shortName\": \"TO3\"\n}"
 		},
 		{
 			"id": "39f51cb1-063a-79fa-8f76-37b84cb82941",
