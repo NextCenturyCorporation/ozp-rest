@@ -163,7 +163,6 @@ class ListingRestService extends RestService<Listing> {
      * null to match all listings
      */
     @Override
-    @RolesAllowed(['ROLE_ADMIN', 'ROLE_ORG_STEWARD'])
     public FilteredListings getAllMatchingParams(
             InputRepresentation<Agency> org,
             ApprovalStatus approvalStatus,
