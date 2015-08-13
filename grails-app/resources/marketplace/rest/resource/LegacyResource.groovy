@@ -23,6 +23,8 @@ import marketplace.rest.service.ProfileRestService
 import marketplace.rest.service.ListingRestService
 import marketplace.rest.representation.out.LegacyPreferenceRepresentation
 
+import marketplace.rest.DomainObjectNotFoundException
+
 import org.springframework.beans.factory.annotation.Autowired
 
 /**
@@ -71,7 +73,7 @@ class LegacyResource {
 
         Collection<IwcDataObject> iwcList = profileRestService.findDataItems(userId,namespace)
         String breaker = "" + (char) 0x1E
-        
+
         iwcList.each{
             data -> list.add(new LegacyPreference(data))
         }
@@ -91,10 +93,15 @@ class LegacyResource {
 
         Profile currentUser = profileRestService.getCurrentUserProfile()
         Long userId = currentUser.id
-        
+
         String key = namespace + (char) 0x1E + name
-        IwcDataObject data = profileRestService.getDataItem(userId,key)
-        new LegacyPreference(data)
+        try {
+            IwcDataObject data = profileRestService.getDataItem(userId,key)
+            new LegacyPreference(data)
+        }
+         catch (DomainObjectNotFoundException e) {
+            new LegacyPreference(namespace, name, null, currentUser, 0)
+        }
     }
 
     @Path('/preference/{namespace}/{name}')
@@ -111,10 +118,15 @@ class LegacyResource {
         Long userId = currentUser.id
         String key = namespace + (char) 0x1E + name
 
-        IwcDataObject data = profileRestService.getDataItem(userId, key)
-        profileRestService.deleteDataItem(userId, key)
+        try {
+            IwcDataObject data = profileRestService.getDataItem(userId, key)
+            profileRestService.deleteDataItem(userId, key)
 
-        new LegacyPreference(data)
+            new LegacyPreference(data)
+        }
+         catch (DomainObjectNotFoundException e) {
+            new LegacyPreference(namespace, name, null, currentUser, 0)
+        }
     }
 
     @Path('/hasPreference/{namespace}/{name}')
@@ -215,7 +227,7 @@ class LegacyResource {
                 }
             }
 
-            listings.each { listing -> 
+            listings.each { listing ->
                 list.add(new LegacyWidget(listing))
             }
         } else {
