@@ -9,6 +9,7 @@ class SearchResult<E> implements List<E>, Paging<E> {
     List<E> items
     int total
     SearchCriteria searchCriteria
+    Map aggs
 
     public Integer getOffset() {
         searchCriteria.offset

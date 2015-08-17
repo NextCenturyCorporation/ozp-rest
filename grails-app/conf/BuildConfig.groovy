@@ -104,7 +104,7 @@ grails.project.dependency.resolution = {
         compile ':database-migration:1.4.0'
         compile ':quartz:1.0.1'
         compile ':cache:1.1.5'
-        compile ':elasticsearch:0.0.3.7'
+        compile ':elasticsearch:0.0.4.3'
         compile ':audit-trail:2.0.2'
         compile ':hibernate:3.6.10.12'
 
