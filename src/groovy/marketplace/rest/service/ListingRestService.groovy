@@ -206,6 +206,15 @@ class ListingRestService extends RestService<Listing> {
         return new FilteredListings(filteredListings, counts)
     }
 
+    private FilteredListings.Counts getAllCounts() {
+        ApprovalStatus approvalStatus = ApprovalStatus.APPROVED
+        Boolean enabled = true
+        Collection<Agency> agencies = null
+        FilteredListings.Counts counts = getCountsMatchingParams(agencies,
+            approvalStatus, enabled)
+        return counts
+    }
+
     /**
      * get the counts of listings matching the parameters.
      */

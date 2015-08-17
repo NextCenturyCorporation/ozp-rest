@@ -28,6 +28,8 @@ import marketplace.ItemComment
 import marketplace.ListingActivity
 import marketplace.ApprovalStatus
 
+import marketplace.FilteredListings
+
 import marketplace.rest.RequiredListingCollection
 import marketplace.rest.RequiringListingCollection
 
@@ -235,4 +237,12 @@ class ListingResource extends RepresentationResource<Listing, ListingInputRepres
     public SearchResult<Listing> search(@Context UriInfo uriInfo) {
         listingSearchService.searchListings(SearchCriteria.fromQueryParams(uriInfo.getQueryParameters(true)))
     }
+
+    @Path('/counts')
+    @GET
+    @Produces([MediaType.APPLICATION_JSON])
+    public FilteredListings.Counts getListingCount() {
+        service.getAllCounts()
+    }
+
 }
