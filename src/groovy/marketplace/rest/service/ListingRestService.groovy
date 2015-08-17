@@ -163,6 +163,7 @@ class ListingRestService extends RestService<Listing> {
      * null to match all listings
      */
     @Override
+    @RolesAllowed(['ROLE_ADMIN', 'ROLE_ORG_STEWARD'])
     public FilteredListings getAllMatchingParams(
             InputRepresentation<Agency> org,
             ApprovalStatus approvalStatus,
@@ -203,6 +204,15 @@ class ListingRestService extends RestService<Listing> {
             approvalStatus, enabled)
 
         return new FilteredListings(filteredListings, counts)
+    }
+
+    private FilteredListings.Counts getAllCounts() {
+        ApprovalStatus approvalStatus = ApprovalStatus.APPROVED
+        Boolean enabled = true
+        Collection<Agency> agencies = null
+        FilteredListings.Counts counts = getCountsMatchingParams(agencies,
+            approvalStatus, enabled)
+        return counts
     }
 
     /**
