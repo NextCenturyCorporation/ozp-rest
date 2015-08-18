@@ -1,3 +1,16 @@
+### 1.0.3 (2015-08-18)
+
+
+#### Bug Fixes
+
+* **LegacyResource:** Change format of LegacyResource response ([e9ee53e1](https://github.com/ozone-development/ozp-rest/commit/e9ee53e18feb2ded4d07ac803812fd7d4c18f81b))
+
+
+#### Features
+
+* **navbar:** Add counts-only endpoint ([304cc891](https://github.com/ozone-development/ozp-rest/commit/304cc8910b0a2ca7323c29bc0df337db9570f5a6))
+
+
 ### 1.0.2 (2015-08-11)
 
 
