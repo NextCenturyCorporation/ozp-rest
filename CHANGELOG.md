@@ -1,3 +1,11 @@
+### 1.0.4 (2015-08-25)
+
+
+#### Bug Fixes
+
+* **LegacyWidgetCollectionRepresentation:** remove double wrapping in Response ([649630e9](https://github.com/ozone-development/ozp-rest/commit/649630e906d86a69e5b0ffc1cd26a5838d464905))
+
+
 ### 1.0.3 (2015-08-18)
 
 
