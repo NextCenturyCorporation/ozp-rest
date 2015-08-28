@@ -70,8 +70,12 @@ Each method will be explained in the following sections:
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a profile in the system.
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/profile/{id}`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {  
     "id":3,
     "bio":"Bio",

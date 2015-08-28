@@ -51,7 +51,12 @@ Each method will be explained in the following sections:
 Use this call to **create** an intent in the system.
 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/intent`
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
 
     {  
         "type":"application/json",
@@ -89,8 +94,12 @@ none
 ###<a name=PUT>PUT</a>
 Use this call to **update** an intent in the system.
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/intent/{id}`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {
          "type": "application/json",
           "action": "view",

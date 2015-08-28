@@ -42,8 +42,12 @@ Each method will be explained in the following sections:
 Use this call to **create** an image in the system.
 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/image`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+#######Body
 	<actual file content, not shown in example> 
 
 #####Response Code:

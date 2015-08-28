@@ -6,7 +6,6 @@ Use the `/Listing_Create` API to create, update, read or delete a listing in the
 ##Request Method TOC
 Each method will be explained in their respective section.
 [POST](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_listing_createAPI.md#POST),
-[PUT](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_listing_createAPI.md#PUT), 
 [GET](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_listing_createAPI.md#GET), 
 [DELETE](https://github.com/ozone-development/ozp-rest/blob/master/docs-external/rest/OZP_listing_createAPI.md#DELETE)
 <br>
@@ -199,10 +198,12 @@ This placeholder URL will vary depending upon your deployment. Be mindful that `
 Use this call to **create** a listing in the system.
 
 #####Request
-##**I have to make sure this works**
-
+######URL
 `https://localhost:8443/marketplace/api/listing`
 
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
 
 
 

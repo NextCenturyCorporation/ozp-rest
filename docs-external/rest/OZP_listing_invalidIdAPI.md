@@ -198,8 +198,13 @@ This placeholder URL will vary depending upon your deployment. Be mindful that `
 Use this call to **update** a listing in the system.
 
 #####Request
+#######URL
 If you want to test the validity of a listing in the system, enter:
 `https://localhost:8443/marketplace/api/listing/{id}`
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+#######Body
 
 	{  
 	    "id":99999,

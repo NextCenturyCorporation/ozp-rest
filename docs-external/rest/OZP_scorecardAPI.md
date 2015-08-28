@@ -51,7 +51,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a scorecard question in the system.
 
 #####Request
+#######URL
 `https://localhost:8443/marketplace/api/scorecard`
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+#######Body
 
 	{  
     	"description":"DESCRIPTION",
@@ -87,8 +92,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a scorecard question in the system.
 #####Request
+#######URL
 `https://localhost:8443/marketplace/api/scorecard/{id}`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+#######Body
 	{  
     	"id":27,
     	"description":"DESCRIPTION",

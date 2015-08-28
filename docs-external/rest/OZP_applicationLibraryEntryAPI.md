@@ -47,8 +47,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a library with one folder in the system.
 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/profile/2/library`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
 	{  
     	"folder":"folder 1",
     	"listing":{  
@@ -84,8 +88,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a library in the system. The following example deletes a listing from a folder in the library. 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/profile/2/library`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
 	[  
     	{  
     	    "folder":"Folder 1",

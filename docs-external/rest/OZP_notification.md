@@ -51,8 +51,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a notification in the system.
 
 #####Request
+#######URL
 `https://localhost:8443/marketplace/api/notification`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+#######Body
     {
       "expiresDate": "2015-01-29T18:25:00Z",
       "message": "Description"
@@ -88,8 +92,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a notification in the system.
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/notification/{id}`
-
+#######Heading
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
       {
     "id":60,
     "expiresDate": "2015-01-29T18:25:00Z",

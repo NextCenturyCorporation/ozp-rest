@@ -47,12 +47,20 @@ Each method will be explained in the following sections:
 Use this call to **create** an agency in the system.
 
 #####Request
+
+######URL
 `https://localhost:8443/marketplace/api/agency`
 
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+
+######Body
     {  
         "title":"Test Organization",
         "shortName":"TORG"
     }
+
 
 #####Response Code:
 201
@@ -79,9 +87,17 @@ none
 
 ###<a name=PUT>PUT</a>
 Use this call to **update** an agency in the system.
+
 #####Request
+
+######URL
 `https://localhost:8443/marketplace/api/agency/{id}`
 
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+
+######Body
     {  
         "id":208,
         "title":"Updated Agency",
