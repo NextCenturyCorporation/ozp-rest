@@ -201,7 +201,7 @@ Use this call to **create** a listing in the system.
 ######URL
 `https://localhost:8443/marketplace/api/listing`
 
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 
