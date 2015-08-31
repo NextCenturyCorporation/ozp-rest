@@ -72,7 +72,7 @@ Use this call to **update** a profile in the system.
 #####Request
 ######URL
 `https://localhost:8443/marketplace/api/profile/{id}`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 ######Body
