@@ -51,12 +51,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a scorecard question in the system.
 
 #####Request
-#######URL
+######URL
 `https://localhost:8443/marketplace/api/scorecard`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
-#######Body
+######Body
 
 	{  
     	"description":"DESCRIPTION",
@@ -92,12 +92,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a scorecard question in the system.
 #####Request
-#######URL
+######URL
 `https://localhost:8443/marketplace/api/scorecard/{id}`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
-#######Body
+######Body
 	{  
     	"id":27,
     	"description":"DESCRIPTION",
@@ -194,23 +194,28 @@ This table lists common errors. Other errors may occur but these are the most li
     <tbody>
         <tr>
             <td>400
-            <td>Type cannot be deleted.
-            <td>See if it is associated with a listing. If any listing is assigned to the type, you cannot delete that type.</td> 
+            <td>System-generated Scorecard questions cannot be deleted.
+            <td>If you try to change them, the system returns an error.</td> 
         </tr>
         <tr>
-            <td>403
-            <td>User cannot create, edit, delete a type.
-            <td>Only administrators can create, edit, delete types.</td> 
+            <td>400
+            <td>User cannot create a scorecard question without giving it a name that is less than 256 characters.
+            <td>Give the question a name that is less than 256.</td> 
         </tr>  
         <tr>
             <td>400
-            <td>Type cannot be created or updated.
-            <td>The type must include all required fields.</td> 
+            <td>The description is too long.
+            <td>The description must be less than 500 characters.</td> 
         </tr>
         <tr>
             <td>400
-            <td>Type must have a unique name.</td>
-            <td>If the type name is not unique, a validation error occurs when you try to save.</td> 
+            <td>The question must include an image icon.</td>
+            <td>This icon is used to identify the question in the listing description. It must be a standard image format.</td> 
+        </tr>
+        <tr>
+            <td>400
+            <td>The question must include an image icon.</td>
+            <td>This icon is used to identify the question in the listing description.</td> 
         </tr>
     </tbody>
 </table> 
