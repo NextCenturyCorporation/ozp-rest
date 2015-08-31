@@ -310,8 +310,8 @@ This table lists common errors. Other errors may occur but these are the most li
     <tbody>
         <tr>
             <td>404
-            <td>This API tests for errors, expect to see them returned for every call.
-            <td>If you do not  the listing.</td> 
+            <td>This is the API tests for errors, expect to see them returned for every call.
+            <td></td> 
         </tr> 
     </tbody>
 </table> 
