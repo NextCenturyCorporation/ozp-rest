@@ -249,11 +249,6 @@ This table lists common errors. Other errors may occur but these are the most li
     </thead>
     <tbody>
         <tr>
-            <td>400
-            <td>Type cannot be deleted.
-            <td>See if it is associated with a listing. If any listing is assigned to the type, you cannot delete that type.</td> 
-        </tr>
-        <tr>
             <td>400</td>
             <td>Update a folder (bad request)</td>
             <td>The folder name must be 256 characters or less.</td> 
