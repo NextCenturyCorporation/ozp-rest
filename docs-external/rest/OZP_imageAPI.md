@@ -115,7 +115,7 @@ This table lists common errors. Other errors may occur but these are the most li
         <tr>
             <td>415</td>
             <td>Unsupported media type</td>
-            <td>Use a supported media type. Use PNG, WEBP, JPEG, SVG+XML. The following are **not** accepted: GIF, TIFF, BMP. </td> 
+            <td>Use a supported media type. Use PNG, WEBP, JPEG, SVG+XML. The following are not accepted: GIF, TIFF, BMP. </td> 
         </tr>
         <tr>
             <td>413</td>
