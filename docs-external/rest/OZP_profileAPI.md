@@ -187,6 +187,35 @@ none
 <br>
 <br>
 
+###Possible Errors
+
+This table lists common errors. Other errors may occur but these are the most likely:
+<table style="width:100%">
+    <thead>
+        <tr>    
+            <td><b>Error <br> Code</b></td>
+            <td><b>Error</b></td>
+            <td><b>Troubleshooting</b></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>404
+            <td>Invalid Profile
+            <td>The profile you're looking for does not exist. If the person's account was deleted you will not see any information about their profile.</td> 
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Invalid bio</td>
+            <td>The bio section of the profile must be 256 characters or less.</td> 
+        </tr>  
+        <tr>
+            <td>400</td>
+            <td>Agency cannot be created or updated.</td>
+            <td>The agency must include all required fields.</td> 
+        </tr>
+    </tbody>
+</table> 
 
 
 
