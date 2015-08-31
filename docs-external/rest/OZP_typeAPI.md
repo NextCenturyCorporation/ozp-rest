@@ -50,7 +50,7 @@ Use this call to **create** a type in the system.
 ######URL
 `https://localhost:8443/marketplace/api/type`
 
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 
@@ -87,14 +87,14 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a type in the system.
 #####Request
-#######URL
+######URL
 `https://localhost:8443/marketplace/api/type/{id}`
 
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 
-#######Body
+######Body
     {  
         "id":1,
         "title":"Widget",
