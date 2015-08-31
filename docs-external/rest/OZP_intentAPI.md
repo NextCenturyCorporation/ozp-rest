@@ -53,7 +53,7 @@ Use this call to **create** an intent in the system.
 #####Request
 ######URL
 `https://localhost:8443/marketplace/api/intent`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 ######Body
@@ -96,7 +96,7 @@ Use this call to **update** an intent in the system.
 #####Request
 ######URL
 `https://localhost:8443/marketplace/api/intent/{id}`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 ######Body
