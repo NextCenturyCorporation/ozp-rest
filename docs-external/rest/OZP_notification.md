@@ -51,12 +51,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a notification in the system.
 
 #####Request
-#######URL
+######URL
 `https://localhost:8443/marketplace/api/notification`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
-#######Body
+######Body
     {
       "expiresDate": "2015-01-29T18:25:00Z",
       "message": "Description"
@@ -94,7 +94,7 @@ Use this call to **update** a notification in the system.
 #####Request
 ######URL
 `https://localhost:8443/marketplace/api/notification/{id}`
-#######Heading
+######Heading
     Accept = application/JSON
     Content-Type = application/JSON
 ######Body
