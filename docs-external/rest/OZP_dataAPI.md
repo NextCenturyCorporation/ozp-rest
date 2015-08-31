@@ -103,24 +103,9 @@ This table lists common errors. Other errors may occur but these are the most li
     </thead>
     <tbody>
         <tr>
-            <td>400
-            <td>Type cannot be deleted.
-            <td>See if it is associated with a listing. If any listing is assigned to the type, you cannot delete that type.</td> 
-        </tr>
-        <tr>
-            <td>403
-            <td>User cannot create, edit, delete a type.
-            <td>Only administrators can create, edit, delete types.</td> 
-        </tr>  
-        <tr>
-            <td>400
-            <td>Type cannot be created or updated.
-            <td>The type must include all required fields.</td> 
-        </tr>
-        <tr>
-            <td>400
-            <td>Type must have a unique name.</td>
-            <td>If the type name is not unique, a validation error occurs when you try to save.</td> 
+            <td>400</td>
+            <td>Key name validation error.</td>
+            <td>Maximum name must not exceed 255 characters.</td> 
         </tr>
     </tbody>
 </table> 
