@@ -208,9 +208,19 @@ This table lists common errors. Other errors may occur but these are the most li
     </thead>
     <tbody>
         <tr>
-            <td>404
-            <td>Invalid ID
+            <td>404</td>
+            <td>Invalid ID</td>
             <td>The notification you are looking for may not exist (i.e., it was deleted) or has a different ID.</td> 
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Message error</td>
+            <td>The notification must be 256 characters or less.</td> 
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Expiration date error</td>
+            <td>The notification must expire after it was created.</td> 
         </tr>
     </tbody>
 </table> 
