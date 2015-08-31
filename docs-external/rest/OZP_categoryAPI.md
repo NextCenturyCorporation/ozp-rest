@@ -52,7 +52,7 @@ Use this call to **create** a category in the system.
 ######Headers
     Accept = application/JSON
     Content-Type = application/JSON
-#######Body
+######Body
     {  
         "title":"News",
         "description":"This is the News category."
@@ -89,7 +89,7 @@ Use this call to **update** a category in the system.
 ######Headers
     Accept = application/JSON
     Content-Type = application/JSON
-#######Body
+######Body
     {  
         "id":65,
         "title":"${News}",
