@@ -47,8 +47,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a contact type in the system.
 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/contactType`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {  
         "title":"Technical Contact",
         "required":false
@@ -81,8 +85,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a contact type in the system.
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/contactType/{id}`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {  
         "id":12,
         "title":"Title",
@@ -120,7 +128,7 @@ If you want to see a list of all the contact types in the system, enter:
 However, to view metadata about only one contact type, enter:
 `https://localhost:8443/marketplace/api/contactType/{id}`
  
-Marketplace returns the representation of the contact type that matches the{id}, as shown in the Response for one contact type id. 
+Marketplace (i.e., Center) returns the representation of the contact type that matches the{id}, as shown in the Response for one contact type id. 
 
 #####Response Code:
 200

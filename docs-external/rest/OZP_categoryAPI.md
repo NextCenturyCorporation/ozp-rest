@@ -47,8 +47,12 @@ Each method will be explained in the following sections:
 Use this call to **create** a category in the system.
 
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/category`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {  
         "title":"News",
         "description":"This is the News category."
@@ -80,8 +84,12 @@ none
 ###<a name=PUT>PUT</a>###
 Use this call to **update** a category in the system.
 #####Request
+######URL
 `https://localhost:8443/marketplace/api/category/{id}`
-
+######Headers
+    Accept = application/JSON
+    Content-Type = application/JSON
+######Body
     {  
         "id":65,
         "title":"${News}",
@@ -119,7 +127,7 @@ If you want to see a list of all the categories in the system, enter:
 However, to view metadata about only one category, enter:
 `https://localhost:8443/marketplace/api/category/{id}`
  
-Marketplace returns the representation of the category that matches the{id}, as shown in the Response for one category id. 
+Marketplace (i.e., Center) returns the representation of the category that matches the{id}, as shown in the Response for one category id. 
 
 #####Response Code:
 200
