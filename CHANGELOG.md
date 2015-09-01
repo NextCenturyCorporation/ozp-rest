@@ -1,3 +1,11 @@
+### 1.0.5 (2015-09-01)
+
+
+#### Features
+
+* **listings:** added legacy listings: Stock Watcher, Widget Search, OWF 7 Testing, Contacts, an ([2b6bf4ed](https://github.com/ozone-development/ozp-rest/commit/2b6bf4ed1192f293403c47f8642bf1ca6fc1a3b2))
+
+
 ### 1.0.4 (2015-08-25)
 
 
