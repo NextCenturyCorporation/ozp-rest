@@ -12,9 +12,9 @@ A system makes a call to OWF asking for metadata about every widget. To make thi
 https://localhost:8443/marketplace/prefs/widget/listUserAndGroupWidgets
 
 #####<i>Request Method:</i>#####
-POST <BR> 
-Request Form Data <br> 
-_method: GET <br>
+POST 
+Request Form Data 
+_method: GET 
 
     widgetName: 'widget's name'
     universalName: 'widget's universal name'
@@ -24,7 +24,7 @@ _method: GET <br>
 
 
 #####<i>Requirements:</i>#####
-None <br>
+None 
 
 Optional: widgetName, universalName, widgetVersion, and widgetGuid (Must be inside searchParams object, see example below)
 
@@ -141,8 +141,8 @@ The following is an example of a call to find widgets:
   <tr>
     <td>{Function} cfg.onFailure <i>Optional</i></td>
     <td>The system returns this function if the user preference cannot be deleted from the database or if the preference does not exist. If this function is not specified a default error message display.<br> 
-    This function passes back the following parameters: <br>error: String
-    <br>Status: The HTTP Status code</td> 
+    This function passes back the following parameters: error: String
+    Status: The HTTP Status code</td> 
   </tr>
 </table>
 

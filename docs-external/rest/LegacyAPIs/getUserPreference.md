@@ -118,9 +118,9 @@ Example:
   </tr>
   <tr>
     <td>{Function} cfg.onFailure <i>Optional</i></td>
-    <td>The system returns this function if the user preference cannot be deleted from the database or if the preference does not exist. If this function is not specified a default error message display.<br> 
-    This function passes back the following parameters: <br>error: String
-    <br>Status: The HTTP Status code</td> 
+    <td>The system returns this function if the user preference cannot be deleted from the database or if the preference does not exist. If this function is not specified a default error message display. 
+    This function passes back the following parameters: error: String
+    Status: The HTTP Status code</td> 
   </tr>
 </table>
 

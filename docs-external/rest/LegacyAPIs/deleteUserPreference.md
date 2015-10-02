@@ -25,11 +25,11 @@ POST, Form_Method:Delete
 
 #####<i>Response:</i>#####
 
-If the system could not find a matching preference and there was not an error it returns:<br>
+If the system could not find a matching preference and there was not an error it returns:
 
 `{“success”:true, “preference”:null}`
 
-If a preference was deleted the system returns:<br>
+If a preference was deleted the system returns:
 `{"id":7,"namespace":”com.company.widget”,"path":"First President","value":"foo val","user":{"userId":"testUser1"}}`
 
 
@@ -91,9 +91,9 @@ The following is an example of a call to delete user preference:
   </tr>
   <tr>
     <td>{Function} cfg.onFailure <i>Optional</i></td>
-    <td>The system returns this function if the user preference cannot be deleted from the database or if the preference does not exist. If this function is not specified a default error message display.<br> 
-    This function passes back the following parameters: <br>error: String
-    <br>Status: The HTTP Status code</td> 
+    <td>The system returns this function if the user preference cannot be deleted from the database or if the preference does not exist. If this function is not specified a default error message display. 
+    This function passes back the following parameters: error: String
+    Status: The HTTP Status code</td> 
   </tr>
 </table>
 
